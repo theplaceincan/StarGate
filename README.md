@@ -24,6 +24,8 @@ TLDR: We are answering when it will pass, and to do that we need to know where w
 
 #### To decode the TLE:
 
+We can use the column table of the TLE that our satellite in question is using in order to simply parse it by category. For TLE, the parse table is this: https://celestrak.org/columns/v04n03/#FAQ01.
+
 Example with ISS:
 ```
 ISS (ZARYA)             
