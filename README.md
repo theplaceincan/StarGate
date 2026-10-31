@@ -22,11 +22,64 @@ Using the ISS as an example and Reno, we first know that we can see the ISS from
 
 TLDR: We are answering when it will pass, and to do that we need to know where we are, where the satellite is, and how to point to it. There's no simple formula to know when it will come
 
+#### To decode the TLE:
+
+Example with ISS:
+```
+ISS (ZARYA)             
+1 25544U 98067A   26302.56368278  .00005507  00000-0  10765-3 0  9997
+2 25544  51.6333 355.1294 0007050 324.3141  35.7375 15.49100842592585
+```
+
+Line 1:
+```
+25544               NORAD catalog number (the id)
+
+U                   Unclassified
+
+98067A	            1998, launch #67, piece A
+
+26302.56368278	    2026-10-29 13:31:42.19 UTC	Epoch
+
+.00005507+	        Mean motion rate of change (positve, so sinking)
+
+10765-3	0.00010765	B* drag term
+
+0                   Ephemeris type
+
+999                 Element set number (unreliable)
+
+7                   Checksum
+```
+
+Line 2 (shape and position of orbit):
+```
+25544               NORAD catalog number, same as line 1
+
+51.6333             Inclination degree; the tilt from the equator, also the max latitude that it flies over
+
+355.1294            RAAN degree; where it crosses the equator going north as measured from the vernal equinox
+
+0007050  0.0007050  Eccentricity; how much the satellite goes up and down while in orbit
+
+324.3141            Argument of perigee degree; the angle from the ascending node to the lowest point
+
+35.7375             Mean anomaly degree; where the satellite was on its loop at epoch, measured from perigee (fyi the perigee definition is weak)
+
+15.49100842         Mean motion, aka the orbit's size
+
+59258               Revolution number (real count is 159258, just 1 digit rolled over due to old design)
+
+5                   Checksum
+```
+
 ### 2. Antenna
 - This part takes in the radio waves from the satellite and uses SDR to turn it into digital samples, which a computer records.
 
 ### 3. Decode
 - This part first turns the radio waves into bits, then sets the bits into fields based on the satellite's specified format
+
+
 
 ### 4. Telemetry
 - This part is where we can use the decoded data for whatever we need. This lets us montior the satellite's status or do other things.
