@@ -1,6 +1,6 @@
 # StarGate
 
-StarGate is a satellite ground station, currently focused on being portable downlink station.
+StarGate is a satellite ground station, for now focused on being portable downlink station.
 
 Downlink ground stations work like this:
 
