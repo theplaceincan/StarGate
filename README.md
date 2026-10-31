@@ -30,3 +30,10 @@ TLDR: We are answering when it will pass, and to do that we need to know where w
 
 ### 4. Telemetry
 - This part is where we can use the decoded data for whatever we need. This lets us montior the satellite's status or do other things.
+
+
+=======================
+
+Scratch work
+
+2026-10-29 13:31:42.19
