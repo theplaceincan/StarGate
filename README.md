@@ -20,6 +20,7 @@ Using the ISS as an example and Reno, we first know that we can see the ISS from
 
 As a test, I'll use the ISS and predict that we will see it 3 times in a given orbit. Assuming that the ISS travels in a straight line, we are likely to see only 2 orbit, and maybe 3 but more faintly, however we could see it orbit 3-4 times since it passes at a slant heading NE or SE. 
 
+TLDR: We are answering when it will pass, and to do that we need to know where we are, where the satellite is, and how to point to it. There's no simple formula to know when it will come
 
 2. Antenna
 - This part takes in the radio waves from the satellite and uses SDR to turn it into digital samples, which a computer records.
