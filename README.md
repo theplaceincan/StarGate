@@ -18,7 +18,7 @@ These three questions are answered every 10 seconds or so. When we notice elevat
 Another note:
 Using the ISS as an example and Reno, we first know that we can see the ISS from ground at around 2,000km in any direction, so a 4,000km range total. We know the Earth takes 24hrs to turn 360 degrees, and an ISS pass takes around 90 minutes, so 90 * 360/1440 = 22.5 degrees elevation, meaning every time the ISS passes, the next time it goes around it would have moved 22.5 degrees to the West of us. From Reno, 1 degree of longtitude is around 86km, so 22.5 * 86 = 1935km. This tells us that every time the ISS passes above us, it has moved 1935km to the West. This basically means, given our 4k range (2k in any direction), we can see the ISS only 2-3 times pass above us. Passes come in clusters, with about 90 minutes between each cluster.
 
-As a test, I'll use the ISS and predict that we will see it 3 times in a given orbit. Assuming that the ISS travels in a straight line, we are likely to see only 2 orbit, and maybe 3 but more faintly, however we could see it orbit 3-4 times since it passes at a slant heading NE or SE. 
+<!-- As a test, I'll use the ISS and predict that we will see it 3 times in a given orbit. Assuming that the ISS travels in a straight line, we are likely to see only 2 orbit, and maybe 3 but more faintly, however we could see it orbit 3-4 times since it passes at a slant heading NE or SE.  -->
 
 TLDR: We are answering when it will pass, and to do that we need to know where we are, where the satellite is, and how to point to it. There's no simple formula to know when it will come
 
