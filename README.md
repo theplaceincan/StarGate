@@ -4,7 +4,7 @@ StarGate is a satellite ground station, for now focused on being portable downli
 
 Downlink ground stations work like this:
 
-1. Pass prediction
+### 1. Pass prediction
 - This part is purely focused on predicting when the satellite will pass overhead. This is needed so it can rotate the antenna to recieve the downlink from the satellite, since satellites are fast and there's only a small window daily where we can be able to recieve anything from them,
 
 In detail:
@@ -22,11 +22,11 @@ Using the ISS as an example and Reno, we first know that we can see the ISS from
 
 TLDR: We are answering when it will pass, and to do that we need to know where we are, where the satellite is, and how to point to it. There's no simple formula to know when it will come
 
-2. Antenna
+### 2. Antenna
 - This part takes in the radio waves from the satellite and uses SDR to turn it into digital samples, which a computer records.
 
-3. Decode
+### 3. Decode
 - This part first turns the radio waves into bits, then sets the bits into fields based on the satellite's specified format
 
-4. Telemetry
+### 4. Telemetry
 - This part is where we can use the decoded data for whatever we need. This lets us montior the satellite's status or do other things.
