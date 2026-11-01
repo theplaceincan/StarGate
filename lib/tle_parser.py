@@ -61,10 +61,10 @@ def tle_parse(first_line, second_line):
   line_2 = int(second_line[0]) # Line number 
   sat_num_2 = int(second_line[2:7]) # Satellite number
   inclination_deg = float(second_line[8:16]) # inclination (degrees)
-  raan = float(second_line[17:25]) # Right Ascension of the Ascending Node (degrees)
+  raan_deg = float(second_line[17:25]) # Right Ascension of the Ascending Node (degrees)
   eccentricity = float(int(second_line[26:33])/1e7) # Eccentricity
-  arg_of_perigee = float(second_line[34:42]) # Argument of Perigee
-  mean_anomaly = float(second_line[43:51]) # Mean Anomaly
+  arg_of_perigee_deg = float(second_line[34:42]) # Argument of Perigee
+  mean_anomaly_deg = float(second_line[43:51]) # Mean Anomaly
   mean_motion_rev_per_day = float(second_line[52:63]) # Mean Motion
   rev_at_epoch = int(second_line[63:68]) # Revolution number at epoch
   checksum_2 = int(second_line[68]) # Checksum (mod 10) (Letters, blanks, periods, plus signs = 0; minus signs = 1)
@@ -84,8 +84,8 @@ def tle_parse(first_line, second_line):
       "epoch_year": epoch_year,
       "epoch_day": epoch_day,
       "first_time_dv": first_time_dv,
-      "second_time_dv_d_1": second_time_dv_d_1,
-      "second_time_dv_d_ex": second_time_dv_d_ex,
+      # "second_time_dv_d_1": second_time_dv_d_1,
+      # "second_time_dv_d_ex": second_time_dv_d_ex,
       "second_time_dv_d": second_time_dv_d,
       # "bstar_1": bstar_1,
       # "bstar_ex": bstar_ex,
@@ -96,10 +96,10 @@ def tle_parse(first_line, second_line):
       "line_2": line_2,
       "sat_num_2": sat_num_2,
       "inclination_deg": inclination_deg,
-      "raan": raan,
+      "raan_deg": raan_deg,
       "eccentricity": eccentricity,
-      "arg_of_perigee": arg_of_perigee,
-      "mean_anomaly": mean_anomaly,
+      "arg_of_perigee_deg": arg_of_perigee_deg,
+      "mean_anomaly_deg": mean_anomaly_deg,
       "mean_motion_rev_per_day": mean_motion_rev_per_day,
       "rev_at_epoch": rev_at_epoch,
       "checksum_2": checksum_2
