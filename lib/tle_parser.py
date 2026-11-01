@@ -36,6 +36,9 @@ def tle_parse(first_line, second_line):
   elif len(second_line) != 69:
     raise ValueError(f"Line 2 has invalid length: {len(second_line)}")
 
+  validate_checksum(first_line, int(first_line[68]))
+  validate_checksum(second_line, int(second_line[68]))
+
   line_1 = first_line[0] # Line number
   sat_num_1 = int(first_line[2:7]) # Satellite number
   classification = first_line[7] # Classification
@@ -65,6 +68,11 @@ def tle_parse(first_line, second_line):
   mean_motion_rev_per_day = float(second_line[52:63]) # Mean Motion
   rev_at_epoch = int(second_line[63:68]) # Revolution number at epoch
   checksum_2 = int(second_line[68]) # Checksum (mod 10) (Letters, blanks, periods, plus signs = 0; minus signs = 1)
+
+  validate_eccentricity(eccentricity)
+  
+  if sat_num_1 != sat_num_2:
+    raise ValueError(f"Incorrect satellite IDs. Line 1: {sat_num_1}, Line 2: {sat_num_2}")
 
   tle = {
       "line_1": line_1,
@@ -96,17 +104,17 @@ def tle_parse(first_line, second_line):
       "rev_at_epoch": rev_at_epoch,
       "checksum_2": checksum_2
     }
-
-  validate_checksum(first_line, checksum_1)
-  validate_checksum(second_line, checksum_2)
-
-  if sat_num_1 != sat_num_2:
-    raise ValueError(f"Incorrect satellite IDs. Line 1: {sat_num_1}, Line 2: {sat_num_2}")
-
+  
   return tle
 
 if __name__ == "__main__":
+
   # ISS (ZARYA)
   line_1 = "1 25544U 98067A   26302.56368278  .00005507  00000-0  10765-3 0  9997"
   line_2 = "2 25544  51.6333 355.1294 0007050 324.3141  35.7375 15.49100842592585"
+  tle_parse(line_1, line_2)
+
+  # METEOR-M2 3           
+  line_1 = "1 57166U 23091A   26305.25001294 -.00000024  00000+0  82011-5 0  9992"
+  line_2 = "2 57166  98.5918 357.3037 0004889 124.0054 236.1590 14.24055351174020"
   tle_parse(line_1, line_2)
