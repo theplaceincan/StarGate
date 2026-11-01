@@ -55,14 +55,18 @@ if eccentricity < 0 or eccentricity >= 1:
 def validate_checksum(line, checksum):
   sum = 0
   count = 0
-  for char in line:
+  for char in line[:68]:
     if char.isdigit():
       sum = sum + int(char)
       count = count + 1
-      if count+1 >= LENGTH:
-        break
+    elif char == '-':
+      sum = sum + 1
+      count = count + 1
 
-  if sum == checksum:
+  s = str(sum)
+  chr = s[-1]
+
+  if int(chr) == checksum:
     return True
 
   return False
