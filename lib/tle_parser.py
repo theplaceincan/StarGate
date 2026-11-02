@@ -1,4 +1,21 @@
 
+Jan_01_2026_UTC_Test = 2_461_041.5
+
+def convert_epoch_to_julian(epoch_year, epoch_day):
+  if epoch_year < 57:
+    epoch_year = epoch_year + 2000
+  else:
+    epoch_year = epoch_year + 1900
+
+  A = int((epoch_year-1)/100)
+  B = 2 - A + int((A/4))
+
+  JD_Jan_0 = (int(365.25 * (epoch_year-1))) + int((30.6001 * 14)) + 1720994.5 + B
+
+  Julian_Date = JD_Jan_0 + epoch_day
+
+  return Julian_Date
+
 # Checksum validation
 # Both lines
 def validate_checksum(line, checksum):
@@ -112,9 +129,16 @@ if __name__ == "__main__":
   # ISS (ZARYA)
   line_1 = "1 25544U 98067A   26302.56368278  .00005507  00000-0  10765-3 0  9997"
   line_2 = "2 25544  51.6333 355.1294 0007050 324.3141  35.7375 15.49100842592585"
-  print(tle_parse(line_1, line_2))
+  iss_tle = tle_parse(line_1, line_2)
+  print(iss_tle)
 
   # METEOR-M2 3           
   line_1 = "1 57166U 23091A   26305.25001294 -.00000024  00000+0  82011-5 0  9992"
   line_2 = "2 57166  98.5918 357.3037 0004889 124.0054 236.1590 14.24055351174020"
-  print(tle_parse(line_1, line_2))
+  m2_tle = tle_parse(line_1, line_2)
+
+  julian_iss = convert_epoch_to_julian(iss_tle["epoch_year"], iss_tle["epoch_day"])
+  julian_m2 = convert_epoch_to_julian(m2_tle["epoch_year"], m2_tle["epoch_day"])
+
+  print(julian_iss)
+  print(julian_m2)
